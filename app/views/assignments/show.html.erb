@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Session:</strong>
+  <%= @assignment.session %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @assignment.member %>
+</p>
+
+<p>
+  <strong>Attended:</strong>
+  <%= @assignment.attended %>
+</p>
+
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Back', assignments_path %>

@@ -1,4 +1,14 @@
 FactoryGirl.define do
+  factory :assignment do
+    session nil
+    member nil
+    attended 1
+  end
+  factory :task do
+    name "MyString"
+    description "MyText"
+    session nil
+  end
   factory :session do
     date "2016-11-05 14:44:42"
   end

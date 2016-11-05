@@ -1,0 +1,13 @@
+<%= simple_form_for(@assignment) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :session %>
+    <%= f.association :member %>
+    <%= f.input :attended %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

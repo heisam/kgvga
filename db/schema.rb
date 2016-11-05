@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105134442) do
+ActiveRecord::Schema.define(version: 20161105141129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer  "session_id"
+    t.integer  "member_id"
+    t.integer  "attended"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_assignments_on_member_id", using: :btree
+    t.index ["session_id"], name: "index_assignments_on_session_id", using: :btree
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -55,5 +65,17 @@ ActiveRecord::Schema.define(version: 20161105134442) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "session_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["session_id"], name: "index_tasks_on_session_id", using: :btree
+  end
+
+  add_foreign_key "assignments", "members"
+  add_foreign_key "assignments", "sessions"
   add_foreign_key "members", "plots"
+  add_foreign_key "tasks", "sessions"
 end
