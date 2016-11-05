@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105132830) do
+ActiveRecord::Schema.define(version: 20161105133934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +30,24 @@ ActiveRecord::Schema.define(version: 20161105132830) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
   end
 
+  create_table "members", force: :cascade do |t|
+    t.integer  "gender"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "plot_id"
+    t.date     "joined_at"
+    t.date     "left_at"
+    t.boolean  "board"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plot_id"], name: "index_members_on_plot_id", using: :btree
+  end
+
   create_table "plots", force: :cascade do |t|
     t.integer  "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "members", "plots"
 end
