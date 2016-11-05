@@ -9,6 +9,7 @@
     config/locales/en.yml. For more see:
     https://github.com/calebthompson/title#usage
   %>
+  <%= render "javascript" %>
   <title><%= title %></title>
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
@@ -16,8 +17,10 @@
 <body class="<%= body_class %>">
   <%= render "flashes" -%>
   <%= render "layouts/navigation" %>
-  <%= yield %>
-  <%= render "javascript" %>
+  <section class="content">
+    <%= yield %>
+  </section>
+
   <%= render "css_overrides" %>
 </body>
 </html>
