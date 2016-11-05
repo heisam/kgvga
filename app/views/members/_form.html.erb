@@ -5,9 +5,9 @@
     <%= f.input :gender %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
-    <%= f.association :plot %>
-    <%= f.input :joined_at %>
-    <%= f.input :left_at %>
+    <%= f.association :plot, label_method: :number, value_method: :id %>
+    <%= f.input :joined_at, as: :date, html5: true %>
+    <%= f.input :left_at, as: :date, html5: true %>
     <%= f.input :board %>
   </div>
 
