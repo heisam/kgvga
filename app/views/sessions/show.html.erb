@@ -2,7 +2,7 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @session.date %>
+  <%= l(@session.date, format: :session) %>
 </p>
 
 <%= link_to 'Edit', edit_session_path(@session) %> |

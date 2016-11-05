@@ -13,7 +13,7 @@
   <tbody>
     <% @sessions.each do |session| %>
       <tr>
-        <td><%= session.date %></td>
+        <td><%= l(session.date, format: :session) %></td>
         <td><%= link_to 'Show', session %></td>
         <td><%= link_to 'Edit', edit_session_path(session) %></td>
         <td><%= link_to 'Destroy', session, method: :delete, data: { confirm: 'Are you sure?' } %></td>

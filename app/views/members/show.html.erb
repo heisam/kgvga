@@ -17,7 +17,7 @@
 
 <p>
   <strong>Plot:</strong>
-  <%= @member.plot.number %>
+  <%= @member.plot.try(:number) %>
 </p>
 
 <p>
